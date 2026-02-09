@@ -1,9 +1,9 @@
-import "./App.css";
+import NavBar from "./components/Navbar";
 
 function App() {
   return (
     <>
-      <h1 className="font-bold text-5xl">Web Event Project</h1>
+      <NavBar />
     </>
   );
 }
