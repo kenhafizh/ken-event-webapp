@@ -4,8 +4,11 @@ import {
   NavbarContent,
   NavbarItem,
   Link,
-  Button,
+  Avatar,
 } from "@heroui/react";
+
+import { FaStar } from "react-icons/fa";
+import { IoIosAddCircle } from "react-icons/io";
 
 export const AcmeLogo = () => {
   return (
@@ -22,55 +25,59 @@ export const AcmeLogo = () => {
 
 export default function NavBar() {
   return (
-    <Navbar
-      maxWidth="full"
-      className="bg-slate-700 flex justify-between px-8 py-2"
-    >
+    <Navbar maxWidth="full" className="bg-slate-700 flex justify-between">
       <NavbarBrand className="text-white items-center">
         <AcmeLogo />
         <p className="font-bold text-white">Ken Organizer</p>
       </NavbarBrand>
-      <NavbarContent
-        className="hidden sm:flex gap-8 text-white "
-        justify="center"
-      >
+      <NavbarContent className="hidden sm:flex gap-8" justify="center">
         <NavbarItem>
-          <Link color="foreground" href="#">
+          <Link href="#" className="text-white">
             Home
           </Link>
         </NavbarItem>
-        <NavbarItem isActive>
-          <Link aria-current="page" href="#">
+        <NavbarItem>
+          <Link href="#" className="text-white">
             Event
           </Link>
         </NavbarItem>
         <NavbarItem>
-          <Link color="foreground" href="#">
+          <Link className="text-white" href="#">
             About
           </Link>
         </NavbarItem>
         <NavbarItem>
-          <Link color="foreground" href="#">
+          <Link className="text-white" href="#">
             Contact
           </Link>
         </NavbarItem>
       </NavbarContent>
-      <NavbarContent justify="end" className="text-white g  ap-4">
+      <NavbarContent justify="end" className="gap-4">
         <NavbarItem className="hidden lg:flex">
-          <Link href="#">Create Event</Link>
+          <div className="flex flex-col items-center">
+            <IoIosAddCircle className="text-white text-xl" />
+            <Link href="#" className="text-white text-sm">
+              Create Event
+            </Link>
+          </div>
         </NavbarItem>
-        <NavbarItem className="hidden lg:flex">
-          <Link href="#">Login</Link>
+        <NavbarItem className="hidden lg:flex mr-4">
+          <div className="flex flex-col items-center">
+            <FaStar className="text-white text-xl" />
+            <Link href="#" className="text-white text-sm">
+              Interested
+            </Link>
+          </div>
         </NavbarItem>
-        <NavbarItem>
-          <Button
-            as={Link}
-            className="bg-yellow-300 text-black rounded-md py-1"
-            href="#"
-          >
-            Sign Up
-          </Button>
-        </NavbarItem>
+        <Avatar
+          isBordered
+          as="button"
+          className="transition-transform"
+          color="secondary"
+          name="Jason Hughes"
+          size="sm"
+          src="https://i.pravatar.cc/150?u=a042581f4e29026704d"
+        />
       </NavbarContent>
     </Navbar>
   );
