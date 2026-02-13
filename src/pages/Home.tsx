@@ -1,8 +1,10 @@
-import { Button } from "@heroui/react";
+import { Button, Input } from "@heroui/react";
 import heroImage from "../assets/header-event-webapp.jpeg";
 import { Card, CardBody, Image } from "@heroui/react";
 import { MdFavorite } from "react-icons/md";
 import concerts from "../data/dummyEvents";
+import createEventImage from "../assets/create-event-banner.png";
+import { LuCalendarPlus2 } from "react-icons/lu";
 
 interface EventData {
   date: string;
@@ -104,6 +106,85 @@ const Home = () => {
           );
         })}
       </div>
+
+      <div className="flex justify-center mt-12 mb-24">
+        <Button variant="bordered" className="w-80">
+          See More
+        </Button>
+      </div>
+
+      <div className="relative w-full mt-20">
+        <div className="absolute inset-0">
+          <img
+            src={createEventImage}
+            alt="Create Event Banner"
+            className="w-full h-full object-cover"
+          />
+          <div className="absolute inset-0 bg-black/40"></div>
+        </div>
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 flex flex-col md:flex-row items-center justify-between gap-6">
+          <div className="flex flex-col items-center md:items-start text-center md:text-left">
+            <h1 className="text-yellow-300 font-bold text-2xl md:text-3xl mb-2">
+              Create an event with Eventify
+            </h1>
+            <p className="text-white text-sm md:text-base max-w-2xl">
+              Got a show, event, activity or a great experience? Partner with us
+              & get listed on Eventify
+            </p>
+          </div>
+          <div>
+            <Button
+              className="bg-yellow-300 text-black font-semibold"
+              size="lg"
+              radius="full"
+              startContent={<LuCalendarPlus2 className="text-xl" />}
+            >
+              Create Event
+            </Button>
+          </div>
+        </div>
+      </div>
+
+      <div className="w-full bg-yellow-300 mt-8">
+        <div className="max-w-7xl mx-auto py-8 flex justify-between items-center">
+          <div>
+            <h1 className="text-2xl font-semibold">
+              Subscribe to our Newsletter
+            </h1>
+            <p className="max-w-md">
+              Receive our weekly newsletter & updates with new events from your
+              favourite organizers & venues.
+            </p>
+          </div>
+          <div className="flex">
+            <Input
+              placeholder="Enter your email address.."
+              type="email"
+              size="md"
+              radius="none"
+              classNames={{
+                inputWrapper: "rounded-l-xl bg-white",
+              }}
+              className="w-80"
+            />
+            <Button
+              radius="none"
+              className="bg-slate-800 text-yellow-300 font-bold rounded-r-xl"
+            >
+              Subscribe
+            </Button>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <div className="flex justify-center bg-slate-700 p-2 text-sm">
+          <p className="text-gray-300">
+            &copy; {new Date().getFullYear()} Kenvent Webapp. All rights
+            reserved.
+          </p>
+        </div>
+      </footer>
     </section>
   );
 };
