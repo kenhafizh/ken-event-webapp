@@ -6,18 +6,11 @@ import konser5 from "../assets/konser-5.png";
 import konser6 from "../assets/konser-6.png";
 import konser7 from "../assets/konser-7.png";
 import konser8 from "../assets/konser-8.png";
-
-export interface EventData {
-  date: string;
-  event_name: string;
-  location: string;
-  concert_time: string;
-  ticket_price_idr: number;
-  image: string;
-}
+import type { EventData } from "../types/event";
 
 const concerts: EventData[] = [
   {
+    id: "1",
     date: "2026-03-15",
     event_name: "Kolaborasi Timur All Stars",
     location: "Makassar Convention Center, Makassar",
@@ -26,6 +19,7 @@ const concerts: EventData[] = [
     image: konser1,
   },
   {
+    id: "2",
     date: "2026-02-20",
     event_name: "IIMS 2026",
     location: "JIExpo Kemayoran, Jakarta",
@@ -34,6 +28,7 @@ const concerts: EventData[] = [
     image: konser2,
   },
   {
+    id: "3",
     date: "2026-03-28",
     event_name: "KapanLagi Buka Bareng",
     location: "Istora Senayan, Jakarta",
@@ -42,6 +37,7 @@ const concerts: EventData[] = [
     image: konser3,
   },
   {
+    id: "4",
     date: "2026-04-12",
     event_name: "Bigu Festival",
     location: "GWK Cultural Park, Bali",
@@ -50,6 +46,7 @@ const concerts: EventData[] = [
     image: konser4,
   },
   {
+    id: "5",
     date: "2026-05-02",
     event_name: "Menyala Tour",
     location: "Eldorado Dome, Bandung",
@@ -58,6 +55,7 @@ const concerts: EventData[] = [
     image: konser5,
   },
   {
+    id: "6",
     date: "2026-06-10",
     event_name: "AESPA Tour",
     location: "Indonesia Arena, Jakarta",
@@ -66,6 +64,7 @@ const concerts: EventData[] = [
     image: konser6,
   },
   {
+    id: "7",
     date: "2026-07-25",
     event_name: "Hammersonic",
     location: "Ancol Carnaval Beach, Jakarta",
@@ -74,6 +73,7 @@ const concerts: EventData[] = [
     image: konser7,
   },
   {
+    id: "8",
     date: "2026-08-14",
     event_name: "Westlife Gala Dinner",
     location: "The Ritz-Carlton Ballroom, Jakarta",

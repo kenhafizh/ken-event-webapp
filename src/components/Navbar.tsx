@@ -3,9 +3,9 @@ import {
   NavbarBrand,
   NavbarContent,
   NavbarItem,
-  Link,
   Avatar,
 } from "@heroui/react";
+import { Link } from "react-router-dom";
 
 import { FaStar } from "react-icons/fa";
 import { IoIosAddCircle } from "react-icons/io";
@@ -28,26 +28,26 @@ export default function NavBar() {
     <Navbar maxWidth="full" className="bg-slate-700 flex justify-between">
       <NavbarBrand className="text-white items-center">
         <AcmeLogo />
-        <p className="font-bold text-white">Ken Organizer</p>
+        <p className="font-bold text-white">InfoKonserID</p>
       </NavbarBrand>
       <NavbarContent className="hidden sm:flex gap-8" justify="center">
         <NavbarItem>
-          <Link href="#" className="text-white">
+          <Link to="/" className="text-white">
             Home
           </Link>
         </NavbarItem>
         <NavbarItem>
-          <Link href="#" className="text-white">
+          <Link to="#" className="text-white">
             Event
           </Link>
         </NavbarItem>
         <NavbarItem>
-          <Link className="text-white" href="#">
+          <Link className="text-white" to="#">
             About
           </Link>
         </NavbarItem>
         <NavbarItem>
-          <Link className="text-white" href="#">
+          <Link className="text-white" to="#">
             Contact
           </Link>
         </NavbarItem>
@@ -56,7 +56,7 @@ export default function NavBar() {
         <NavbarItem className="hidden lg:flex">
           <div className="flex flex-col items-center">
             <IoIosAddCircle className="text-white text-xl" />
-            <Link href="#" className="text-white text-sm">
+            <Link to="#" className="text-white text-sm">
               Create Event
             </Link>
           </div>
@@ -64,7 +64,7 @@ export default function NavBar() {
         <NavbarItem className="hidden lg:flex mr-4">
           <div className="flex flex-col items-center">
             <FaStar className="text-white text-xl" />
-            <Link href="#" className="text-white text-sm">
+            <Link to="/interest" className="text-white text-sm">
               Interested
             </Link>
           </div>

@@ -1,21 +1,32 @@
 import { Button, Input } from "@heroui/react";
 import heroImage from "../assets/header-event-webapp.jpeg";
 import { Card, CardBody, Image } from "@heroui/react";
-import { MdFavorite } from "react-icons/md";
+import { MdFavorite, MdFavoriteBorder } from "react-icons/md";
 import concerts from "../data/dummyEvents";
 import createEventImage from "../assets/create-event-banner.png";
 import { LuCalendarPlus2 } from "react-icons/lu";
-
-interface EventData {
-  date: string;
-  event_name: string;
-  location: string;
-  concert_time: string;
-  ticket_price_idr: number;
-  image: string;
-}
+import Footer from "../components/Footer";
+import type { EventData } from "../types/event";
+import { useEvent } from "../context/EventContext";
 
 const Home = () => {
+  const { addToInterested, removeFromInterested, interestedEvents } =
+    useEvent();
+
+  // Helper function untuk cek apakah event sudah di-like berdasarkan ID
+  const isEventInterested = (eventId: string) => {
+    return interestedEvents.some((event) => event.id === eventId);
+  };
+
+  // Toggle function untuk add/remove event dari interested list
+  const toggleInterested = (event: EventData) => {
+    if (isEventInterested(event.id)) {
+      removeFromInterested(event.id);
+    } else {
+      addToInterested(event);
+    }
+  };
+
   const formatDate = (dateString: string) => {
     const date = new Date(dateString);
     const month = date
@@ -79,8 +90,19 @@ const Home = () => {
                   removeWrapper={true}
                   className="w-full h-[300px] object-cover"
                 />
-                <div className="absolute top-2 right-2 z-10 bg-white/70 p-1.5 rounded-full shadow-sm">
-                  <MdFavorite className="text-red-500 text-xl" />
+                <div className="absolute top-2 right-2 z-10">
+                  <Button
+                    isIconOnly
+                    aria-label="Like"
+                    radius="full"
+                    onPress={() => toggleInterested(event)}
+                  >
+                    {isEventInterested(event.id) ? (
+                      <MdFavorite className="text-red-500 text-xl" />
+                    ) : (
+                      <MdFavoriteBorder className="text-red-500 text-xl" />
+                    )}
+                  </Button>
                 </div>
               </div>
 
@@ -175,16 +197,9 @@ const Home = () => {
             </Button>
           </div>
         </div>
-      </div>
 
-      <footer>
-        <div className="flex justify-center bg-slate-700 p-2 text-sm">
-          <p className="text-gray-300">
-            &copy; {new Date().getFullYear()} Kenvent Webapp. All rights
-            reserved.
-          </p>
-        </div>
-      </footer>
+        <Footer />
+      </div>
     </section>
   );
 };
