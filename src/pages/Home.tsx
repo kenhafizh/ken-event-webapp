@@ -6,6 +6,7 @@ import { LuCalendarPlus2 } from "react-icons/lu";
 import Footer from "../components/Footer";
 import EventCard from "../components/EventCard";
 import type { EventData } from "../types/event";
+import { Link } from "react-router-dom";
 
 const Home = () => {
   return (
@@ -51,7 +52,9 @@ const Home = () => {
 
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-7xl mx-auto mb-10 px-4 xl:px-0">
         {concerts.map((event: EventData) => (
-          <EventCard key={event.id} event={event} />
+          <Link to={`/event/${event.id}`}>
+            <EventCard key={event.id} event={event} />
+          </Link>
         ))}
       </div>
 

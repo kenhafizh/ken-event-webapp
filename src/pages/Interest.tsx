@@ -2,13 +2,13 @@ import { useEvent } from "../context/EventContext";
 import EventCard from "../components/EventCard";
 
 const Interest = () => {
-  const { interestedEvents, removeFromInterested } = useEvent();
+  const { interestedEvents } = useEvent();
 
   return (
     <div className="px-8 py-12">
       <h2 className="text-2xl font-bold">Interested Events</h2>
 
-      {interestedEvents.length === 0 && (
+      {interestedEvents.length == 0 && (
         <p className="flex justify-center mt-8">No interested events yet.</p>
       )}
 

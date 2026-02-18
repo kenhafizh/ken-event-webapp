@@ -43,7 +43,7 @@ const EventCard = ({ event }: EventCardProps) => {
           src={event.image}
           radius="none"
           removeWrapper={true}
-          className="w-full h-[300px] object-cover"
+          className="w-full h-75 object-cover"
         />
         <div className="absolute top-2 right-2 z-10">
           <Button
