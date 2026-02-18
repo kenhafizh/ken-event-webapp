@@ -26,9 +26,14 @@ export const AcmeLogo = () => {
 export default function NavBar() {
   return (
     <Navbar maxWidth="full" className="bg-slate-700 flex justify-between">
-      <NavbarBrand className="text-white items-center">
-        <AcmeLogo />
-        <p className="font-bold text-white">InfoKonserID</p>
+      <NavbarBrand className="text-white">
+        <Link
+          to="/"
+          className="flex items-center gap-2 hover:opacity-80 transition-opacity"
+        >
+          <AcmeLogo />
+          <p className="font-bold text-white">InfoKonserID</p>
+        </Link>
       </NavbarBrand>
       <NavbarContent className="hidden sm:flex gap-8" justify="center">
         <NavbarItem>

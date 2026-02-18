@@ -1,9 +1,9 @@
 export interface EventData {
   id: string;
   date: string;
-  event_name: string;
+  eventName: string;
   location: string;
-  concert_time: string;
-  ticket_price_idr: number;
+  concertTime: string;
+  ticketPrice: number;
   image: string;
 }
